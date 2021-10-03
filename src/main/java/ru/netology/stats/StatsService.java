@@ -25,15 +25,12 @@ public class StatsService {
     }
 
     public int averageAmount(int[] sales) {
-        int average = 0;
         int count = 0;
-        int general = 0;
+        int average = 0;
         for (int sale : sales) {
             count += 1;
-            general += sale;
-
         }
-        average = general / count;
+        average = sumCalculate(sales) / count;
         return average;
     }
 
@@ -53,18 +50,10 @@ public class StatsService {
     }
 
     public int countMonthSaleLessThenAverage(int[] sales) {
-        int average = 0;
-        int count = 0;
-        int general = 0;
-        for (int sale : sales) {
-            count += 1;
-            general += sale;
 
-        }
-        average = general / count;
         int countMonth = 0;
         for (int sale : sales) {
-            if (sale < average) {
+            if (sale < averageAmount(sales)) {
                 countMonth = countMonth + 1;
             }
 
@@ -74,23 +63,16 @@ public class StatsService {
     }
 
     public int countMonthSaleMoreAverage(int[] sales) {
-        int count = 0;
-        int average = 0;
-        int general = 0;
-        for (int sale : sales) {
-            count += 1;
-            general += sale;
 
-        }
-        average = general / count;
         int countMonth = 0;
         for (int sale : sales) {
-            if (sale > average) {
+            if (sale > averageAmount(sales)) {
                 countMonth = countMonth + 1;
             }
         }
         return countMonth;
     }
+
 }
 
 

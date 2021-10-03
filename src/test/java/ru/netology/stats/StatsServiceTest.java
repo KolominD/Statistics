@@ -54,4 +54,5 @@ class StatsServiceTest {
         int actual = service.countMonthSaleMoreAverage(sales);
         assertEquals(expected, actual);
     }
+
 }
